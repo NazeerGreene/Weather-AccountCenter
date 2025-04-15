@@ -1,11 +1,10 @@
 spring:
-  profiles: prod
 
-datasource:
-  url: jdbc:mysql://localhost:33061/weather_prod
-  username: ${username}
-  password: ${password}
-  driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    url: jdbc:mysql://localhost:33061/weather_prod
+    username: ${username}
+    password: ${password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:

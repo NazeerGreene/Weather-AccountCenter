@@ -1,5 +1,4 @@
 spring:
-  profiles: dev
 
   datasource:
     # in-memory storage

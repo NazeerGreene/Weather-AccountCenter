@@ -1,5 +1,4 @@
 spring:
-  profiles: test
 
   datasource:
     url: jdbc:mysql://localhost:33061/weather_test

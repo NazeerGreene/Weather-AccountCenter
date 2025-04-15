@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 mvnw*
+creds.yml
 
 ### STS ###
 .apt_generated

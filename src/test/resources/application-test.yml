@@ -1,0 +1,15 @@
+spring:
+  profiles: test
+
+  datasource:
+    url: jdbc:mysql://localhost:33061/weather_test
+    username: ${username}
+    password: ${password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      # this tell Hibernate to drop + recreate tables on every startup
+      ddl-auto: create
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect

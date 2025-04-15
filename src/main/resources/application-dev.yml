@@ -1,0 +1,24 @@
+spring:
+  profiles: dev
+
+  datasource:
+    # in-memory storage
+    url: jdbc:h2:mem:weather_dev
+    # file storage
+    #url: jdbc:h2:file:/data/demo
+    username: sa
+    # default: no password
+    password: password
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      # this tell Hibernate to automatically update the db schema to match models
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      settings.trace: false # prevent trace output
+      settings.web-allow-others: false # prevent remote access

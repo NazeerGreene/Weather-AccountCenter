@@ -1,15 +1,19 @@
 package com.example.Registration.controller;
 
-import com.example.Registration.service.UserService;
-import lombok.AllArgsConstructor;
+import com.example.Registration.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
+    private final AccountService accountService;
+
+    @Autowired
+    public UserController(AccountService accountService) {
+        this.accountService = accountService;
+    }
 
     @PostMapping("/new")
     void registerNewUser() {

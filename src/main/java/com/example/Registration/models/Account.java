@@ -7,17 +7,18 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(
-        name = "User",
+        name = "account",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "email")
         }
 )
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class User {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

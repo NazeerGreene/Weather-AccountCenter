@@ -1,9 +1,9 @@
 -- Table for Unit Groups
-CREATE TABLE unit_groups (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    code VARCHAR(10) NOT NULL UNIQUE,
-    description VARCHAR(50)
-);
+--CREATE TABLE unit_groups (
+--    id INT AUTO_INCREMENT PRIMARY KEY,
+--    code VARCHAR(10) NOT NULL UNIQUE,
+--    description VARCHAR(50)
+--);
 
 INSERT INTO unit_groups (code, description) VALUES
 ('us', 'US customary units'),
@@ -11,13 +11,12 @@ INSERT INTO unit_groups (code, description) VALUES
 ('metric', 'Metric system'),
 ('base', 'Scientific measurement units');
 
-
 -- Table for Languages
-CREATE TABLE languages (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    code VARCHAR(5) NOT NULL UNIQUE,
-    name VARCHAR(50) NOT NULL
-);
+--CREATE TABLE languages (
+--    id INT AUTO_INCREMENT PRIMARY KEY,
+--    code VARCHAR(5) NOT NULL UNIQUE,
+--    name VARCHAR(50) NOT NULL
+--);
 
 INSERT INTO languages (code, name) VALUES
 ('ar', 'Arabic'),

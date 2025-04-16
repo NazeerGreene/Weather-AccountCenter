@@ -12,18 +12,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(
-        name = "account",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "email")
-        }
-)
+@Table(name = "account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+
+    @Column(nullable = false, unique = true)
     private String email;
-    private String preferredLocation;
+
     private LocalDateTime createdAt = LocalDateTime.now();
 }

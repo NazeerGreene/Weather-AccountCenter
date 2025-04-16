@@ -1,7 +1,7 @@
-package com.example.Registration.models;
+package com.example.AccountCenter.models;
 
-import com.example.Registration.models.database.Language;
-import com.example.Registration.models.database.UnitGroup;
+import com.example.AccountCenter.models.database.Language;
+import com.example.AccountCenter.models.database.UnitGroup;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,10 +21,10 @@ public class AccountPreferences {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // NOTE: Keeping this separate from Account
-    // to keep lean table schema and ORM
-    @Column(name = "account_id", nullable = false)
-    private Long accountId;
+    @OneToOne
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
+
     private String location;
 
     @ManyToOne

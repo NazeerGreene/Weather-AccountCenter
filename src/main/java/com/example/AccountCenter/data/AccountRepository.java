@@ -1,6 +1,6 @@
-package com.example.Registration.data;
+package com.example.AccountCenter.data;
 
-import com.example.Registration.models.Account;
+import com.example.AccountCenter.models.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

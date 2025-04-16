@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Weather-Registration</artifactId>
+	<artifactId>Weather-AccountCenter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Weather-Registration</name>
-	<description>Spring project: registration microservice for WeatherApp</description>
+	<name>Weather-AccountCenter</name>
+	<description>Spring project: account-related microservice for WeatherApp</description>
 	<url/>
 	<licenses>
 		<license/>

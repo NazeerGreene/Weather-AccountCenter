@@ -1,8 +1,7 @@
-package com.example.Registration.controller;
+package com.example.AccountCenter.controller;
 
-import com.example.Registration.service.AccountService;
+import com.example.AccountCenter.service.AccountService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor

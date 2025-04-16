@@ -1,10 +1,10 @@
-package com.example.Registration;
+package com.example.AccountCenter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RegistrationApplicationTests {
+class AccountCenterApplicationTests {
 
 	@Test
 	void contextLoads() {

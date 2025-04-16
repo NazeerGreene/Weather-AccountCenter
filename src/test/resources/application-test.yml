@@ -12,3 +12,8 @@ spring:
       ddl-auto: create
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  sql:
+    init:
+      # this tells Spring to initialize the database with values in data.sql
+      mode: always

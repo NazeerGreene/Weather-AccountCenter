@@ -1,6 +1,5 @@
-package com.example.Registration.controller;
+package com.example.AccountCenter.controller;
 
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice

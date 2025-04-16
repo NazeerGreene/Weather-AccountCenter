@@ -1,4 +1,4 @@
-package com.example.Registration.models;
+package com.example.AccountCenter.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

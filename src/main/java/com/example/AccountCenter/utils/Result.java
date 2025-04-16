@@ -1,7 +1,6 @@
-package com.example.Registration.utils;
+package com.example.AccountCenter.utils;
 
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;

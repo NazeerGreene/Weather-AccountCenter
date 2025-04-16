@@ -1,9 +1,9 @@
-package com.example.Registration.service;
+package com.example.AccountCenter.service;
 
-import com.example.Registration.data.AccountRepository;
-import com.example.Registration.models.Account;
-import com.example.Registration.utils.Result;
-import com.example.Registration.utils.ResultType;
+import com.example.AccountCenter.data.AccountRepository;
+import com.example.AccountCenter.models.Account;
+import com.example.AccountCenter.utils.Result;
+import com.example.AccountCenter.utils.ResultType;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
@@ -47,9 +47,11 @@ public class AccountService {
         return id > 0 && repository.existsById(id);
     }
 
-    public void deleteUserById() {
-        // only returns success statement and user id (now-deleted)
-        return;
+    public boolean deleteAccountById(long id) {
+        if (confirmAccountExists(id)) {
+            repository.deleteById(id);
+            return true;
+        }
+        return false;
     }
-
 }

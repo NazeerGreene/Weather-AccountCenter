@@ -1,6 +1,6 @@
-package com.example.Registration.data;
+package com.example.AccountCenter.data;
 
-import com.example.Registration.models.Account;
+import com.example.AccountCenter.models.Account;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +23,6 @@ class AccountRepositoryTest {
     void itShouldSaveUser() {
         Account user = new Account();
         user.setEmail("nazeer@example.com");
-        user.setPreferredLocation("77471");
 
         Account saved = accountRepository.save(user);
 
@@ -35,7 +34,6 @@ class AccountRepositoryTest {
     void itShouldFindByEmail() {
         Account user = new Account();
         user.setEmail("zeer@example.com");
-        user.setPreferredLocation("77001");
         accountRepository.save(user);
 
         Optional<Account> found = accountRepository.findByEmail("zeer@example.com");
@@ -47,12 +45,10 @@ class AccountRepositoryTest {
     void itShouldNotAllowDuplicateEmail() {
         Account user1 = new Account();
         user1.setEmail("unique@example.com");
-        user1.setPreferredLocation("77000");
         accountRepository.save(user1);
 
         Account user2 = new Account();
         user2.setEmail("unique@example.com");
-        user2.setPreferredLocation("77001");
 
         assertThrows(DataIntegrityViolationException.class, () -> {
             accountRepository.save(user2);
@@ -60,23 +56,9 @@ class AccountRepositoryTest {
     }
 
     @Test
-    void itShouldUpdateUserPreferredLocation() {
-        Account user = new Account();
-        user.setEmail("geo@example.com");
-        user.setPreferredLocation("12345");
-        accountRepository.save(user);
-
-        user.setPreferredLocation("99999");
-        Account updated = accountRepository.save(user);
-
-        assertThat(updated.getPreferredLocation()).isEqualTo("99999");
-    }
-
-    @Test
     void itShouldDeleteUser() {
         Account user = new Account();
         user.setEmail("temp@example.com");
-        user.setPreferredLocation("40404");
         accountRepository.save(user);
 
         accountRepository.delete(user);

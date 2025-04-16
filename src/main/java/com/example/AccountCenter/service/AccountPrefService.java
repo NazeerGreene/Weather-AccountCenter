@@ -1,9 +1,9 @@
-package com.example.Registration.service;
+package com.example.AccountCenter.service;
 
-import com.example.Registration.data.AccountPreferencesRepository;
-import com.example.Registration.models.AccountPreferences;
-import com.example.Registration.utils.Result;
-import com.example.Registration.utils.ResultType;
+import com.example.AccountCenter.data.AccountPreferencesRepository;
+import com.example.AccountCenter.models.AccountPreferences;
+import com.example.AccountCenter.utils.Result;
+import com.example.AccountCenter.utils.ResultType;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
@@ -32,7 +32,6 @@ public class AccountPrefService {
 
     Result<AccountPreferences> getPreferencesByAccountId(long accountId) {
         Result<AccountPreferences> result = new Result<>();
-        // only returns user id and preferences, no email, no createdAt
 
         if (!accountService.confirmAccountExists(accountId)) {
             return accountNotFound(accountId, result);

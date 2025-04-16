@@ -1,8 +1,11 @@
 package com.example.Registration.controller;
 
+import com.example.Registration.models.Account;
 import com.example.Registration.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -37,6 +40,7 @@ public class UserController {
     void userPreferenceDetails(
             @RequestParam(name = "userId") String id
     ) {
+
         return;
     }
 

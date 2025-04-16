@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user_preferences")
-public class UserPreferences {
+@Table(name = "account_preferences")
+public class AccountPreferences {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // NOTE: Keeping this separate from Account
-    // to keep lean table schema
+    // to keep lean table schema and ORM
     @Column(name = "account_id", nullable = false)
     private Long accountId;
     private String location;

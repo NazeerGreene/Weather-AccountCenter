@@ -23,24 +23,30 @@ public class AccountService {
         if (user.getId() != 0) {
             result.type(ResultType.FAILED);
             result.add("id cannot be set");
+            return result;
+        }
 
         // 2. user must have unique email
-        } else if (repository.findByEmail(user.getEmail()).isPresent()) {
+        if (getAccountDetails(user.getEmail()).isPresent()) {
             result.type(ResultType.FAILED);
             result.add("email already taken");
+            return result;
+        }
 
         // 3. no preferences will be mandatory
-        } else {
-            Account _registered = repository.save(user);
-            result.type(ResultType.SUCCESS);
-            result.payload(_registered);
-        }
+        Account registered = repository.save(user);
+        result.type(ResultType.SUCCESS);
+        result.payload(registered);
 
         return result;
     }
 
      public Optional<Account> getAccountDetails(long id) {
         return id > 0 ? repository.findById(id) : Optional.empty();
+    }
+
+    public Optional<Account> getAccountDetails(String email) {
+        return email.isBlank() ? Optional.empty() : repository.findByEmail(email);
     }
 
     boolean confirmAccountExists(long id) {

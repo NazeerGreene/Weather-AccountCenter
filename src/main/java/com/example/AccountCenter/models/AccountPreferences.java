@@ -22,7 +22,8 @@ public class AccountPreferences {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    @JoinColumn(name = "account_id", referencedColumnName = "id",
+    foreignKey = @ForeignKey(name = "fk_account_to_preferences"))
     private Account account;
 
     private String location;

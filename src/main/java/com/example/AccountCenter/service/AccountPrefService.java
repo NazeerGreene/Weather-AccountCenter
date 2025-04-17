@@ -19,8 +19,8 @@ public class AccountPrefService {
     public Result<AccountPreferences> setAccountPreferences(@NonNull AccountPreferences prefs) {
         Result<AccountPreferences> result = new Result<>();
 
-        if (!accountService.confirmAccountExists(prefs.getAccountId())) {
-            return accountNotFound(prefs.getAccountId(), result);
+        if (!accountService.confirmAccountExists(prefs.getAccount().getId())) {
+            return accountNotFound(prefs.getAccount().getId(), result);
         }
 
         // nothing has to be immediately set

@@ -42,7 +42,7 @@ class AccountRepositoryTest {
     }
 
     @Test
-    void itShouldNotAllowDuplicateEmail() {
+    void itShould_Not_AllowDuplicateEmail() {
         Account user1 = new Account();
         user1.setEmail("unique@example.com");
         accountRepository.save(user1);
@@ -66,5 +66,4 @@ class AccountRepositoryTest {
         Optional<Account> deleted = accountRepository.findByEmail("temp@example.com");
         assertThat(deleted).isEmpty();
     }
-
 }

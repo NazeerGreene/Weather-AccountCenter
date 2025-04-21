@@ -18,9 +18,10 @@ public class AccountPrefService {
 
     public Result<AccountPreferences> setAccountPreferences(@NonNull AccountPreferences prefs) {
         Result<AccountPreferences> result = new Result<>();
+        long accountId = prefs.getAccount().getId();
 
-        if (!accountService.confirmAccountExists(prefs.getAccount().getId())) {
-            return accountNotFound(prefs.getAccount().getId(), result);
+        if (!accountService.existsById(accountId)) {
+            return accountNotFound(accountId, result);
         }
 
         // nothing has to be immediately set
@@ -33,7 +34,7 @@ public class AccountPrefService {
     Result<AccountPreferences> getPreferencesByAccountId(long accountId) {
         Result<AccountPreferences> result = new Result<>();
 
-        if (!accountService.confirmAccountExists(accountId)) {
+        if (!accountService.existsById(accountId)) {
             return accountNotFound(accountId, result);
         }
 

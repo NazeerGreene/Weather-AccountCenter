@@ -41,7 +41,7 @@ public class AccountService {
         return result;
     }
 
-     public Optional<Account> getAccountDetails(long id) {
+    public Optional<Account> getAccountDetails(long id) {
         return id > 0 ? repository.findById(id) : Optional.empty();
     }
 
@@ -49,12 +49,12 @@ public class AccountService {
         return email.isBlank() ? Optional.empty() : repository.findByEmail(email);
     }
 
-    boolean confirmAccountExists(long id) {
+    boolean existsById(long id) {
         return id > 0 && repository.existsById(id);
     }
 
     public boolean deleteAccountById(long id) {
-        if (confirmAccountExists(id)) {
+        if (existsById(id)) {
             repository.deleteById(id);
             return true;
         }

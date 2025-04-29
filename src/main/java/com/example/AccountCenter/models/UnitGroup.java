@@ -1,4 +1,4 @@
-package com.example.AccountCenter.models.database;
+package com.example.AccountCenter.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,16 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "languages")
-public class Language {
+@Table(name = "unit_groups")
+public class UnitGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String code;
-    private String name;
+    private String description;
 }

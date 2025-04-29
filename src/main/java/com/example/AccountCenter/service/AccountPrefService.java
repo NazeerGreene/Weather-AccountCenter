@@ -1,6 +1,7 @@
 package com.example.AccountCenter.service;
 
 import com.example.AccountCenter.data.AccountPreferencesRepository;
+import com.example.AccountCenter.models.Account;
 import com.example.AccountCenter.models.AccountPreferences;
 import com.example.AccountCenter.utils.Result;
 import com.example.AccountCenter.utils.ResultType;
@@ -31,22 +32,26 @@ public class AccountPrefService {
         return result;
     }
 
-    Result<AccountPreferences> getPreferencesByAccountId(long accountId) {
+    public Result<AccountPreferences> getPreferencesByAccountId(long accountId) {
         Result<AccountPreferences> result = new Result<>();
 
         if (!accountService.existsById(accountId)) {
             return accountNotFound(accountId, result);
         }
 
-        Optional<AccountPreferences> found = repository.findByAccountId(accountId);
+        result.type(ResultType.SUCCESS);
 
-        if (found.isPresent()) {
-            result.type(ResultType.SUCCESS);
-            result.payload(found.get());
-        } else {
-            result.type(ResultType.FAILED);
-            result.add("set preferences for account first");
-        }
+        AccountPreferences found = repository.findByAccount_Id(accountId).orElseGet(() -> {
+            Account account = accountService.getAccountDetails(accountId).get();
+            AccountPreferences newPrefs = new AccountPreferences();
+
+            newPrefs.setAccount(account);
+            repository.save(newPrefs);
+            return newPrefs;
+        });
+
+        result.type(ResultType.SUCCESS);
+        result.payload(found);
 
         return result;
     }

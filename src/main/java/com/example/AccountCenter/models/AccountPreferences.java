@@ -1,7 +1,5 @@
 package com.example.AccountCenter.models;
 
-import com.example.AccountCenter.models.database.Language;
-import com.example.AccountCenter.models.database.UnitGroup;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,10 +27,12 @@ public class AccountPreferences {
     private String location;
 
     @ManyToOne
-    @JoinColumn(name = "unit_group_id", referencedColumnName = "id")
+    @JoinColumn(name = "unit_group_id", referencedColumnName = "id",
+    foreignKey = @ForeignKey(name = "fk_preferences_unit_group"))
     private UnitGroup unitGroup;
 
     @ManyToOne
-    @JoinColumn(name = "language_id", referencedColumnName = "id")
+    @JoinColumn(name = "language_id", referencedColumnName = "id",
+    foreignKey = @ForeignKey(name = "fk_preferences_language"))
     private Language language;
 }

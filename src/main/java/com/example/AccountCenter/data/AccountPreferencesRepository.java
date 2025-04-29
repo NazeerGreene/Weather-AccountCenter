@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface AccountPreferencesRepository extends CrudRepository<AccountPreferences, Long> {
-    Optional<AccountPreferences> findByAccountId(Long accountId);
+    Optional<AccountPreferences> findByAccount_Id(Long accountId);
 }

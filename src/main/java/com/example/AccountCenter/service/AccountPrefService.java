@@ -11,12 +11,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * The service class for Account-related preferences.
+ * Either set new preferences or receiving existing ones.
+ */
+
 @Service
 @AllArgsConstructor
 public class AccountPrefService {
     private final AccountPreferencesRepository repository;
     private final AccountService accountService;
 
+    /**
+     * Set new preferences for an account
+     * @param prefs The new preferences (Account mandatory)
+     * @return A Result of the preferences
+     */
     public Result<AccountPreferences> setAccountPreferences(@NonNull AccountPreferences prefs) {
         Result<AccountPreferences> result = new Result<>();
         long accountId = prefs.getAccount().getId();
@@ -32,6 +42,11 @@ public class AccountPrefService {
         return result;
     }
 
+    /**
+     * Get preferences according to account ID
+     * @param accountId The account ID
+     * @return The Result of the preferences
+     */
     public Result<AccountPreferences> getPreferencesByAccountId(long accountId) {
         Result<AccountPreferences> result = new Result<>();
 

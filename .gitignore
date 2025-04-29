@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 mvnw*
 creds.yml
+.DS_Store
 
 ### STS ###
 .apt_generated

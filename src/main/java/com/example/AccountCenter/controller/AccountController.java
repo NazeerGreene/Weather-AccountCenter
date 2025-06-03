@@ -4,6 +4,8 @@ import com.example.AccountCenter.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+// todo: finish account controller
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/account")
